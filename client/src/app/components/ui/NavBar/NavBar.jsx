@@ -6,11 +6,14 @@ import NavBarWrapper from "./NavBarWrapper";
 const NavBar = () => {
     return (
         <NavBarWrapper>
-            <NavLink to={"/"}>Лого</NavLink>
+            <NavLink className={"font-bold text-2xl"} to={"/"}>
+                LNS
+            </NavLink>
             <NavBarLinkList>
                 <NavLink to={"/"}>Главная</NavLink>
-                <NavLink to={"/posts"}>Посты</NavLink>
-                <NavLink to={"/"}>О проекте</NavLink>
+                <NavLink to={"/posts"}>Блог</NavLink>
+                <NavLink to={"/"}>About</NavLink>
+                <NavLink to={"/contact"}>Контакты</NavLink>
             </NavBarLinkList>
         </NavBarWrapper>
     );

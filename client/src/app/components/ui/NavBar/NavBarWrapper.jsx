@@ -1,20 +1,33 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import ScreenWidthWrapper from "../ScreenWidthWrapper";
 
 const NavBarWrapper = ({ children }) => {
+    const [scroll, setScroll] = useState(0);
+    const handleScrol = () => {
+        setScroll(window.scrollY);
+    };
+    useEffect(() => {
+        window.addEventListener("scroll", handleScrol);
+    }, []);
     return (
         <div
             className={
-                "sticky top-0 z-40 w-full backdrop-blur flex-none transition-colors duration-500 lg:z-50 lg:border-b lg:border-slate-900/10 " +
-                "bg-white/95 supports-backdrop-blur:bg-white/65"
+                "fixed w-full bg-transparent top-0 left-0 z-50  box-border justify-center flex"
             }
         >
-            <ScreenWidthWrapper>
-                <div className="py-4 px-4">
-                    <div className="relative flex items-center">{children}</div>
-                </div>
-            </ScreenWidthWrapper>
+            <div
+                className={`${
+                    scroll < 15 ? "w-0" : "w-full"
+                } h-full bg-stone-50 absolute top-0 right-0  -z-[1] transition-[width] ease-linear duration-300 `}
+            ></div>
+
+            <div
+                className={`${
+                    scroll < 15 ? "text-stone-50" : ""
+                } flex items-center py-4 w-4/5 h-[80px]  box-border transition-[color] ease-linear duration-300 `}
+            >
+                {children}
+            </div>
         </div>
     );
 };

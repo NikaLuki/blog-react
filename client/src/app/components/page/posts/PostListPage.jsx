@@ -1,22 +1,25 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import { getPosts } from "../../../store/post";
 import PostList from "../../ui/PostList";
 
-const fakePsots = [
-    {
-        id: 1,
-        content: "Расскажу вам про шизу",
-        url: "https://cdnb.artstation.com/p/assets/images/images/002/752/237/large/kevin-koesnodihardjo-kindred-phinyx.jpg?1465312452"
-    },
-    {
-        id: 2,
-        content: "Расскажу вам про шизу",
-        url: "https://phonoteka.org/uploads/posts/2022-09/1663262481_43-phonoteka-org-p-van-pis-art-instagram-54.jpg"
-    },
-    { id: 3, content: "Расскажу вам про шизу", url: "" },
-    { id: 4, content: "Расскажу вам про шизу", url: "" }
-];
+// const fakePsots = [
+//     {
+//         id: 1,
+//         content: "Расскажу вам про шизу",
+//         url: "https://cdnb.artstation.com/p/assets/images/images/002/752/237/large/kevin-koesnodihardjo-kindred-phinyx.jpg?1465312452"
+//     },
+//     {
+//         id: 2,
+//         content: "Расскажу вам про шизу",
+//         url: "https://phonoteka.org/uploads/posts/2022-09/1663262481_43-phonoteka-org-p-van-pis-art-instagram-54.jpg"
+//     },
+//     { id: 3, content: "Расскажу вам про шизу", url: "" },
+//     { id: 4, content: "Расскажу вам про шизу", url: "" }
+// ];
 const PostListPage = () => {
-    const postsList = fakePsots;
+    const postList = useSelector(getPosts());
+
     return (
         <div className="scroll-auto">
             <header className="py-16 sm:text-center">
@@ -25,8 +28,8 @@ const PostListPage = () => {
                 </h1>
             </header>
             <PostList>
-                {postsList &&
-                    postsList.map((item) => (
+                {postList &&
+                    postList.map((item) => (
                         <PostList.Item key={item.id} item={item} />
                     ))}
             </PostList>

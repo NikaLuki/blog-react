@@ -3,24 +3,27 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 const PostList = ({ children }) => {
-    return <div className=" grid grid-cols-2 gap-[30px]">{children}</div>;
+    return <div className="flex flex-wrap   mb-16">{children}</div>;
 };
 
 const PostListItem = ({ item }) => {
     return (
-        <Link to={`/posts/${item.id}`}>
-            <div className=" bg-white rounded h-auto flex flex-col">
-                <div className=" min-h-[240px] text-center h-[240px]">
-                    <img
-                        className=" rounded-b-none rounded-t w-full h-full object-cover "
-                        src={item.url}
-                    />
-                </div>
-                <div className="   px-[30px] pt-[25px] pb-[30px]">
-                    {item.id + " " + item.content}
-                </div>
-            </div>
-        </Link>
+        <div className={" w-1/2"}>
+            <img className="rounded-lg bg-transparent " src={item.url} />
+            <ul className="mt-4 mb-4 flex flex-wrap items-center space-x-3 text-text">
+                <li>04 Apr 2022</li>
+                <li>Development</li>
+            </ul>
+            <h3 className="mb-2">
+                <Link className="block hover:text-primary">{item.content}</Link>
+            </h3>
+            <p className="text-text">
+                Nemo vel ad consectetur namut rutrum ex, venenatis sollicitudin
+                urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum
+                lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis
+                neque blan
+            </p>
+        </div>
     );
 };
 

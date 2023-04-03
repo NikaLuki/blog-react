@@ -1,21 +1,9 @@
 import React from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
-import NavBar from "./components/ui/NavBar/NavBar";
-import PostsLayout from "./layouts/PostsLayout";
+
+import MainLayout from "./layouts/MainLayout";
 
 function App() {
-    return (
-        <BrowserRouter>
-            <div className="min-h-screen bg-slate-50 dark:bg-slate-900 transition-colors duration-150 flex flex-col ">
-                <NavBar />
-                <Switch>
-                    <Route path="/" exact />
-                    <Route path="/auth" />
-                    <Route path="/posts/:id?" component={PostsLayout} />
-                </Switch>
-            </div>
-        </BrowserRouter>
-    );
+    return <MainLayout />;
 }
 
 export default App;

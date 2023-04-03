@@ -1,10 +1,10 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import usersReducer from "./users";
 import postsReducer from "./post";
+import adminReducer from "./admin";
 
 const rootReducer = combineReducers({
     posts: postsReducer,
-    users: usersReducer
+    users: adminReducer
 });
 
 export function createStore() {
